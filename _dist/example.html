@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Feature-tested 3D animation example</title>
+	
+	<!-- CSS is loaded with the markup to avoid a FOUC -->
+	<link rel="stylesheet" href="css/all.css">
+
+	<!-- JS conditionally loaded -->
+	<script id="initialjs" src="js/initial.js" data-enhance="js/main.js"></script>
+</head>
+
+<body>
+
+<h1>Feature-tested 3D animation: flip <span>(<a href="http://github.com/filamentgroup/CSS-feature-test">github.com/filamentgroup/CSS-feature-test</a>)</span></h1>
+
+<div class="card flip" tabindex="0">
+	<div class="flip-card">
+		<div class="flip-front card-front">
+			<p>Card front</p>
+		</div>
+		<div class="flip-back card-back">
+			<p>Card back</p>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
