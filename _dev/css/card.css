@@ -1,0 +1,23 @@
+.card,
+.card-front,
+.card-back {
+	width: 20em;
+}
+.enhanced .card,
+.enhanced .card-front,
+.enhanced .card-back {
+	height: 15em;
+}
+.card-front,
+.card-back {
+	border: 1px solid #ccc;
+	border-radius: .2em;
+	box-shadow: 0 0 .4em rgba(200,200,200,.8);
+	background-color: #fff;
+}
+.card-back {
+	background-color: #ddd;
+}
+.card p {
+	margin: 1em;
+}
