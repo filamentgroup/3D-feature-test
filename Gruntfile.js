@@ -19,14 +19,14 @@ module.exports = function(grunt) {
 					'_dev/js/_lib/modernizr.js',
 					'_dev/js/initial.config.js'
 				],
-				dest: '_dist/js/initial.js'
+				dest: 'example/js/initial.js'
 			},
 			js_main: {
 				src: [
 					'_dev/js/_lib/jquery.js',
 					'_dev/js/_lib/flip.js'
 				],
-				dest: '_dist/js/main.js'
+				dest: 'example/js/main.js'
 			},
 			css_main: {
 				src: [
@@ -34,13 +34,13 @@ module.exports = function(grunt) {
 					'_dev/css/card.css',
 					'_dev/css/_lib/flip.css'
 				],
-				dest: '_dist/css/all.css'
+				dest: 'example/css/all.css'
 			},
 		},		
 		copy: {
 			dist: {
 				files: [
-					{ expand: true, cwd: '_dev', src: ["*.html"], dest: "_dist/" }
+					{ expand: true, cwd: '_dev', src: ["*.html"], dest: "example/" }
 				]
 			},
 		},
