@@ -13,13 +13,13 @@
 		ret = false,
 		transforms, t;
 
+	// Media-matchin’ for WebKit up front, as the `t in transforms` test loop below gives a false positive in older Androids.
 	if( mm ) {
 		ret = window.matchMedia( "(-" + vendors.join( "-" + prop + "),(-" ) + "-" + prop + "),(" + prop + ")" ).matches;
 	}
 
 	if( !ret ) {
 		transforms = {
-			// We’re omitting Opera for the time being; MS uses unprefixed.
 			"MozTransform": "-moz-transform",
 			"transform": "transform"
 		};
@@ -38,6 +38,7 @@
 		de.removeChild( fakeBody );
 	}
 
+	// If `ret` is explicitly true or contains a matchMedia match other than `none`, add the prop class. Else, prefix it with `no-`.
 	de.setAttribute( "class", ' ' + ( ( !!ret && ret !== "none" ) ? '' : 'no-') + prop );
 
 }( this ));
