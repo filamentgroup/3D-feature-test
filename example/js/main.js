@@ -34,7 +34,7 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
 
 			$( this ).bind( "click keypress", function( e ){
 				$( this ).trigger( overEvent );
-				e.preventDefault();
+				e.preventDefault();	
 			} );
 		});
 	};

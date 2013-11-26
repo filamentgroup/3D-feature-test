@@ -18,7 +18,7 @@
 		transforms, t;
 
 	if( mm ) {
-		ret = window.matchMedia( "(-" + vendors.join( "-" + prop + "),(-" ) + "-" + prop + "),(" + prop + ")" );
+		ret = window.matchMedia( "(-" + vendors.join( "-" + prop + "),(-" ) + "-" + prop + "),(" + prop + ")" ).matches;
 	}
 
 	if( !ret ) {
@@ -39,9 +39,9 @@
 	}
 
 	if( fakeBody ) {
-		fakeBody.remove();
+		de.removeChild( fakeBody );
 	}
-	
+
 	de.setAttribute( "class", ' ' + ( ( !!ret && ret !== "none" ) ? '' : 'no-') + prop );
 
 }( this ));
