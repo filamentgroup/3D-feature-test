@@ -1,36 +1,30 @@
 (function( win, undefined ) {
+	var fakeBody,
+		doc = document,
+		de = doc.documentElement,
+		bod = doc.body || (function() {
+			fakeBody = doc.createElement('body');
+			return de.insertBefore( fakeBody, de.firstElementChild || de.firstChild);
+		}()),
+		el = document.createElement( "div" ),
+		prop = "transform-3d",
+		vendors = [ "Webkit", "Moz", "O" ],
+		mm = "matchMedia" in window,
+		ret = false,
+		transforms, t;
 
-	function transform3dTest() {
-		var fakeBody,
-			doc = document,
-			de = doc.documentElement,
-			bod = doc.body || (function() {
-				fakeBody = true;
-				return de.insertBefore(doc.createElement('body'), de.firstElementChild || de.firstChild);
-			}()),
-			el = document.createElement( "div" ),
-			prop = "transform-3d",
-			vendors = [ "Webkit", "Moz", "O" ],
-			mm = "matchMedia" in window,
-			ret = false,
-			transforms, t;
+	if( mm ) {
+		ret = window.matchMedia( "(-" + vendors.join( "-" + prop + "),(-" ) + "-" + prop + "),(" + prop + ")" );
+	}
 
-		if( mm ) {
-			ret = window.matchMedia( "(-" + vendors.join( "-" + prop + "),(-" ) + "-" + prop + "),(" + prop + ")" );
-			if ( ret ) {
-				return !!ret;
-			}
-		} else {
-			return !!ret;
-		}
-
+	if( !ret ) {
 		transforms = {
 			// We’re omitting Opera for the time being; MS uses unprefixed.
 			"MozTransform": "-moz-transform",
 			"transform": "transform"
 		};
 
-		fakeBody.appendChild( el );
+		bod.appendChild( el );
 
 		for ( t in transforms ) {
 			if ( el.style[ t ] !== undefined ) {
@@ -38,9 +32,12 @@
 				ret = window.getComputedStyle( el ).getPropertyValue( transforms[ t ] );
 			}
 		}
-		return ( !!ret && ret !== "none" );
 	}
 
-	console.log( transform3dTest() );
+	if( fakeBody ) {
+		fakeBody.remove();
+	}
+	
+	de.setAttribute( "class", ' ' + ( ( !!ret && ret !== "none" ) ? '' : 'no-') + prop );
 
 }( this ));

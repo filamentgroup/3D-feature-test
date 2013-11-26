@@ -1,4 +1,4 @@
-/*! 3D feature test - v0.0.1 - 2013-11-05
+/*! 3D feature test - v0.0.1 - 2013-11-26
 * Copyright (c) 2013 Authored by Filament Group, Inc.
 * http://filamentgroup.github.com/3D-feature-test */
 
@@ -34,7 +34,7 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
 
 			$( this ).bind( "click keypress", function( e ){
 				$( this ).trigger( overEvent );
-				e.preventDefault();	
+				e.preventDefault();
 			} );
 		});
 	};

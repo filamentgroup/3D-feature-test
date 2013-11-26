@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 			},
 			js_initial: {
 				src: [
-					'_dev/js/_lib/modernizr.js',
+					'_dev/js/_lib/fg-3d-test.js',
 					'_dev/js/initial.config.js'
 				],
 				dest: 'example/js/initial.js'
