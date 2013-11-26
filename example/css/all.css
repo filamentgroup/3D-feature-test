@@ -1,4 +1,4 @@
-/*! 3D feature test - v0.0.1 - 2013-11-05
+/*! 3D feature test - v0.0.1 - 2013-11-26
 * Copyright (c) 2013 Authored by Filament Group, Inc.
 * http://filamentgroup.github.com/3D-feature-test */
 
@@ -40,6 +40,48 @@ h1 span {
 }
 .card p {
 	margin: 1em;
+}
+
+
+
+.transform-3d .flip-front {
+	z-index: 9;
+	
+	-webkit-transform: rotateX(0deg);
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+
+	-moz-transform: rotateX(0deg);
+	-moz-transform-style: preserve-3d;
+	-moz-backface-visibility: hidden;
+
+	-webkit-transition: -webkit-transform .4s ease-in-out;
+	-moz-transition: -moz-transform .4s ease-in-out;
+}
+.transform-3d .flip-over .flip-front {
+	z-index: 9;
+
+	-webkit-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg);
+}
+.transform-3d .flip-back {
+	z-index: 8;
+			
+	-webkit-transform: rotateX(-180deg);
+	-webkit-backface-visibility: hidden;
+
+	-moz-transform: rotateX(-180deg);
+	-moz-backface-visibility: hidden;
+	
+	-moz-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+}
+.transform-3d .flip-over .flip-back {
+	opacity: 1;
+	z-index: 1;
+			
+	-webkit-transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
 }
 /*
  * flip plugin
